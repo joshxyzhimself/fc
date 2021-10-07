@@ -14,10 +14,18 @@ cp ./release-v0.24.6/jailer-v0.24.6-x86_64 /bin/fcj
 chmod +x /bin/fcx
 chmod +x /bin/fcj
 
-# cleanup
-rm -rf ./firecracker-v0.24.6-x86_64.tgz
-rm -rf ./release-v0.24.6/
-
 # version checks
 fcx --version
 fcj --version
+
+# nested virtualization check
+apt install -y cpu-checker
+kvm-ok
+
+# download
+wget https://s3.amazonaws.com/spec.ccfc.min/img/quickstart_guide/x86_64/kernels/vmlinux.bin -N
+wget https://s3.amazonaws.com/spec.ccfc.min/img/quickstart_guide/x86_64/rootfs/bionic.rootfs.ext4 -N
+
+# rename
+mv ./vmlinux.bin ./hello-vmlinux.bin
+mv ./bionic.rootfs.ext4 ./hello-rootfs.ext4
