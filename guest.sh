@@ -1,13 +1,13 @@
 
 # path vars
+printf "\n\n>> >> PATHS..\n"
 kernel_path="$(pwd)/vmlinux.bin"
 rootfs_path="$(pwd)/bionic.rootfs.ext4"
-
-# path logs
 echo "kernel_path $kernel_path"
 echo "rootfs_path $rootfs_path"
 
-# set the guest kernel
+# set guest kernel
+printf "\n\n>> >> SET GUEST KERNEL..\n"
 curl --unix-socket /tmp/firecracker.socket -i \
   -X PUT 'http://localhost/boot-source'   \
   -H 'Accept: application/json'           \
@@ -17,7 +17,8 @@ curl --unix-socket /tmp/firecracker.socket -i \
     \"boot_args\": \"console=ttyS0 reboot=k panic=1 pci=off nomodules\"
   }"
 
-# set the guest rootfs
+# set guest rootfs
+printf "\n\n>> >> SET GUEST ROOTFS..\n"
 curl --unix-socket /tmp/firecracker.socket -i \
   -X PUT 'http://localhost/drives/rootfs' \
   -H 'Accept: application/json'           \
@@ -30,6 +31,7 @@ curl --unix-socket /tmp/firecracker.socket -i \
   }"
 
 # start the guest machine
+printf "\n\n>> >> START GUEST MACHINE..\n"
 curl --unix-socket /tmp/firecracker.socket -i \
   -X PUT 'http://localhost/actions'       \
   -H  'Accept: application/json'          \

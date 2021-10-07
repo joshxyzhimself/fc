@@ -1,5 +1,8 @@
 /firecracker-v0.24.6-x86_64.tgz
 /release-v0.24.6
 
+/firecracker
+/jailer
+
 /vmlinux.bin
 /bionic.rootfs.ext4
