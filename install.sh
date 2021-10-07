@@ -1,37 +1,58 @@
+
+
+# strict mode
 set -eu
+
+
+# docker
+apt update
+apt install -y docker.io
+systemctl start docker
+usermod -aG docker $USER
+systemctl status docker --no-pager
+
 
 # nested virtualization check
 apt install -y cpu-checker
 kvm-ok
 
+
 # kvm read-write access
 setfacl -m u:${USER}:rw /dev/kvm
+
 
 # download
 wget -N https://github.com/firecracker-microvm/firecracker/releases/download/v0.24.6/firecracker-v0.24.6-x86_64.tgz
 
+
 # extract
 tar zxvf ./firecracker-v0.24.6-x86_64.tgz
 
-# executable path
+
+# executable
 cp ./release-v0.24.6/firecracker-v0.24.6-x86_64 /bin/fcx
 cp ./release-v0.24.6/jailer-v0.24.6-x86_64 /bin/fcj
+
 
 # permissions
 chmod +x /bin/fcx
 chmod +x /bin/fcj
 
+
 # version checks
 fcx --version
 fcj --version
+
 
 # download
 wget https://s3.amazonaws.com/spec.ccfc.min/img/quickstart_guide/x86_64/kernels/vmlinux.bin -N
 wget https://s3.amazonaws.com/spec.ccfc.min/img/quickstart_guide/x86_64/rootfs/bionic.rootfs.ext4 -N
 
+
 # path vars
 kernel_path="$(pwd)/vmlinux.bin"
 rootfs_path="$(pwd)/bionic.rootfs.ext4"
+
 
 # path logs
 echo "kernel_path $kernel_path"
