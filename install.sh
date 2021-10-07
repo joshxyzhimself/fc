@@ -1,5 +1,12 @@
 set -eu
 
+# nested virtualization check
+apt install -y cpu-checker
+kvm-ok
+
+# kvm read-write access
+setfacl -m u:${USER}:rw /dev/kvm
+
 # download
 wget -N https://github.com/firecracker-microvm/firecracker/releases/download/v0.24.6/firecracker-v0.24.6-x86_64.tgz
 
@@ -17,10 +24,6 @@ chmod +x /bin/fcj
 # version checks
 fcx --version
 fcj --version
-
-# nested virtualization check
-apt install -y cpu-checker
-kvm-ok
 
 # download
 wget https://s3.amazonaws.com/spec.ccfc.min/img/quickstart_guide/x86_64/kernels/vmlinux.bin -N
