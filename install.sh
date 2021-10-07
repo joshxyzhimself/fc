@@ -26,6 +26,10 @@ kvm-ok
 wget https://s3.amazonaws.com/spec.ccfc.min/img/quickstart_guide/x86_64/kernels/vmlinux.bin -N
 wget https://s3.amazonaws.com/spec.ccfc.min/img/quickstart_guide/x86_64/rootfs/bionic.rootfs.ext4 -N
 
-# rename
-mv ./vmlinux.bin ./hello-vmlinux.bin
-mv ./bionic.rootfs.ext4 ./hello-rootfs.ext4
+# path vars
+kernel_path="$(pwd)/vmlinux.bin"
+rootfs_path="$(pwd)/bionic.rootfs.ext4"
+
+# path logs
+echo "kernel_path $kernel_path"
+echo "rootfs_path $rootfs_path"

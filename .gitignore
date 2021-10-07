@@ -3,6 +3,3 @@
 
 /vmlinux.bin
 /bionic.rootfs.ext4
-
-/hello-vmlinux.bin
-/hello-rootfs.ext4
