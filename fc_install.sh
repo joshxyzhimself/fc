@@ -22,6 +22,7 @@ kvm-ok
 
 # kvm read-write access
 printf "\n\n>> >> KVM READ-WRITE ACCESS..\n"
+apt install -y acl
 setfacl -m u:${USER}:rw /dev/kvm
 
 
