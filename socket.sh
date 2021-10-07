@@ -1,3 +1,6 @@
+# strict mode
+printf "\n\n>> >> STRICT MODE..\n"
+set -eu
 
 
 printf "\n\n>> >> rm -f /tmp/firecracker.socket\n"

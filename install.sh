@@ -1,6 +1,7 @@
 
 
 # strict mode
+printf "\n\n>> >> STRICT MODE..\n"
 set -eu
 
 
