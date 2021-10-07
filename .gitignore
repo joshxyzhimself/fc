@@ -6,3 +6,4 @@
 
 /vmlinux.bin
 /bionic.rootfs.ext4
+/vmconfig.json
