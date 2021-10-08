@@ -5,6 +5,12 @@ printf "\n\n>> >> STRICT MODE..\n"
 set -eu
 
 
+# nested vm check
+printf "\n\n>> >> NESTED VM CHECK..\n"
+apt install -y cpu-checker
+kvm-ok
+
+
 # install docker
 printf "\n\n>> >> INSTALL DOCKER..\n"
 apt update
@@ -12,12 +18,6 @@ apt install -y docker.io
 systemctl start docker
 usermod -aG docker $USER
 systemctl status docker --no-pager
-
-
-# nested vm check
-printf "\n\n>> >> NESTED VM CHECK..\n"
-apt install -y cpu-checker
-kvm-ok
 
 
 # kvm read-write access
