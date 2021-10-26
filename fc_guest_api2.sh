@@ -19,7 +19,7 @@ curl --unix-socket /tmp/firecracker.socket -i \
   -H 'Content-Type: application/json' \
   -d "{
     \"kernel_image_path\": \"${kernel_path}\",
-    \"boot_args\": \"console=ttyS1 reboot=k panic=1 pci=off nomodules\"
+    \"boot_args\": \"reboot=k panic=1 pci=off nomodules\"
   }"
 
 
