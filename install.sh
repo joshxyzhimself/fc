@@ -14,20 +14,23 @@ curl --silent --location https://github.com/firecracker-microvm/firecracker/rele
 printf "step: tar\n"
 tar --gunzip --extract --file ./temp/firecracker.tgz --directory ./temp
 
-
 printf "step: mv\n"
-mv ./temp/release-$version-$platform/firecracker-$version-$platform ./firecracker
-mv ./temp/release-$version-$platform/jailer-$version-$platform ./jailer
+mv ./temp/release-$version-$platform/firecracker-$version-$platform ./temp/firecracker
+mv ./temp/release-$version-$platform/jailer-$version-$platform ./temp/jailer
 
 printf "step: rm\n"
 rm -rf ./temp/release-$version-$platform/
 rm -rf ./temp/firecracker.tgz
 
+printf "step: chmod\n"
+chmod +x ./temp/firecracker
+chmod +x ./temp/jailer
+
 printf "step: curl kernel\n"
-curl --silent --location https://s3.amazonaws.com/spec.ccfc.min/img/quickstart_guide/x86_64/kernels/vmlinux.bin > ./temp/vmlinux.bin
+curl --location https://s3.amazonaws.com/spec.ccfc.min/img/quickstart_guide/x86_64/kernels/vmlinux.bin > ./temp/vmlinux.bin
 
 printf "step: curl rootfs\n"
-curl --silent --location https://s3.amazonaws.com/spec.ccfc.min/img/quickstart_guide/x86_64/rootfs/bionic.rootfs.ext4 > ./temp/bionic.rootfs.ext4
+curl --location https://s3.amazonaws.com/spec.ccfc.min/img/quickstart_guide/x86_64/rootfs/bionic.rootfs.ext4 > ./temp/bionic.rootfs.ext4
 
 kernel_path="./temp/vmlinux.bin"
 printf "kernel_path: $kernel_path\n"
