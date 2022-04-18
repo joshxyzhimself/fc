@@ -38,8 +38,8 @@ tar zxvf ./firecracker-v1.0.0-x86_64.tgz
 
 # executable
 printf "\n\n>> >> FIRECRACKER EXECUTABLE..\n"
-mv ./release-v1.0.0/firecracker-v1.0.0-x86_64 ./firecracker
-mv ./release-v1.0.0/jailer-v1.0.0-x86_64 ./jailer
+mv ./release-v1.0.0-x86_64/firecracker-v1.0.0-x86_64 ./firecracker
+mv ./release-v1.0.0-x86_64/jailer-v1.0.0-x86_64 ./jailer
 
 
 # permissions
