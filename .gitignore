@@ -1,9 +1,1 @@
-/firecracker-v1.0.0-x86_64.tgz
-/release-v1.0.0-x86_64
-
-/firecracker
-/jailer
-
-/vmlinux.bin
-/bionic.rootfs.ext4
-/vmconfig.json
+/temp/
