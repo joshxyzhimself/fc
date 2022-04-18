@@ -28,18 +28,18 @@ setfacl -m u:${USER}:rw /dev/kvm
 
 # firecracker download
 printf "\n\n>> >> FIRECRACKER DOWNLOAD..\n"
-wget -N https://github.com/firecracker-microvm/firecracker/releases/download/v0.24.6/firecracker-v0.24.6-x86_64.tgz
+wget -N https://github.com/firecracker-microvm/firecracker/releases/download/v1.0.0/firecracker-v1.0.0-x86_64.tgz
 
 
 # extract
 printf "\n\n>> >> FIRECRACKER EXTRACT..\n"
-tar zxvf ./firecracker-v0.24.6-x86_64.tgz
+tar zxvf ./firecracker-v1.0.0-x86_64.tgz
 
 
 # executable
 printf "\n\n>> >> FIRECRACKER EXECUTABLE..\n"
-mv ./release-v0.24.6/firecracker-v0.24.6-x86_64 ./firecracker
-mv ./release-v0.24.6/jailer-v0.24.6-x86_64 ./jailer
+mv ./release-v1.0.0/firecracker-v1.0.0-x86_64 ./firecracker
+mv ./release-v1.0.0/jailer-v1.0.0-x86_64 ./jailer
 
 
 # permissions
