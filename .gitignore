@@ -1,1 +1,4 @@
-/temp/
+/firecracker
+/jailer
+/bionic.rootfs.ext4
+/vmlinux.bin
