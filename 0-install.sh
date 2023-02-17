@@ -5,14 +5,11 @@ printf "platform: $platform\n"
 version="v1.2.0"
 printf "version: $version\n"
 
-printf "step: mkdir\n"
-mkdir -p ./temp
-
 printf "step: curl firecracker-$version-$platform\n"
 curl --silent --location https://github.com/firecracker-microvm/firecracker/releases/download/$version/firecracker-$version-$platform.tgz > ./firecracker.tgz
 
 printf "step: tar\n"
-tar --gunzip --extract --file ./firecracker.tgz --directory ./temp
+tar --gunzip --extract --file ./firecracker.tgz --directory ./
 
 printf "step: mv\n"
 mv ./release-$version-$platform/firecracker-$version-$platform ./firecracker
